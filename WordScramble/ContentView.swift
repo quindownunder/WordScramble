@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
+    @State private var score = 0
     
     var body: some View {
         NavigationView {
@@ -29,8 +30,17 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle")
                     Text($0)
                 }
+                
+                Text("\(score)")
+                    .font(.largeTitle)
             }
             .navigationBarTitle(rootWord)
+            .navigationBarItems(leading:
+                Button(action: startGame) {
+                    Image(systemName: "play")
+                        .renderingMode(.original)
+                }
+            )
             .onAppear(perform: startGame)
             .alert(isPresented: $showingError) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
@@ -41,6 +51,11 @@ struct ContentView: View {
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         guard answer.count > 0 else {
+            return
+        }
+        
+        guard isLongEnough(word: answer) else {
+            wordError(title: "Word too short", message: "Try and find a longer word")
             return
         }
         
@@ -59,8 +74,14 @@ struct ContentView: View {
             return
         }
         
+        guard isNotTheSame(word: answer) else {
+            wordError(title: "Word is the same", message: "Try to find a different word")
+            return
+        }
+        
         usedWords.insert(answer, at: 0)
         newWord = ""
+        score += answer.count
     }
     
     func startGame()  {
@@ -68,10 +89,15 @@ struct ContentView: View {
             if let startWords = try? String(contentsOf: startWorldsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
                 rootWord = allWords.randomElement() ?? "silkworm"
+                usedWords.removeAll()
                 return
             }
         }
         fatalError("Could not load start.txt from bundle")
+    }
+    
+    func isNotTheSame(word: String) -> Bool {
+        return word != rootWord
     }
     
     func isOriginal(word: String) -> Bool {
@@ -89,6 +115,10 @@ struct ContentView: View {
             }
         }
         return true
+    }
+    
+    func isLongEnough(word: String) -> Bool {
+        return word.count >= 3
     }
     
     func isReal(word: String) -> Bool {

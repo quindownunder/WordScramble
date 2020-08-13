@@ -13,6 +13,7 @@
 		06FCC82424E3C673002678EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06FCC82324E3C673002678EB /* Assets.xcassets */; };
 		06FCC82724E3C673002678EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06FCC82624E3C673002678EB /* Preview Assets.xcassets */; };
 		06FCC82A24E3C673002678EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06FCC82824E3C673002678EB /* LaunchScreen.storyboard */; };
+		06FCC83224E4FF35002678EB /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 06FCC83124E4FF35002678EB /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		06FCC82624E3C673002678EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		06FCC82924E3C673002678EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06FCC82B24E3C673002678EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06FCC83124E4FF35002678EB /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				06FCC81F24E3C672002678EB /* SceneDelegate.swift */,
 				06FCC82124E3C672002678EB /* ContentView.swift */,
 				06FCC82324E3C673002678EB /* Assets.xcassets */,
+				06FCC83124E4FF35002678EB /* start.txt */,
 				06FCC82824E3C673002678EB /* LaunchScreen.storyboard */,
 				06FCC82B24E3C673002678EB /* Info.plist */,
 				06FCC82524E3C673002678EB /* Preview Content */,
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06FCC82A24E3C673002678EB /* LaunchScreen.storyboard in Resources */,
+				06FCC83224E4FF35002678EB /* start.txt in Resources */,
 				06FCC82724E3C673002678EB /* Preview Assets.xcassets in Resources */,
 				06FCC82424E3C673002678EB /* Assets.xcassets in Resources */,
 			);
